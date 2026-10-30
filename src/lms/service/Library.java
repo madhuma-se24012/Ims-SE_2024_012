@@ -20,7 +20,7 @@ public class Library
     }
 
     public void listItems() {
-        System.out.println("===  Items in the library ===");
+        System.out.println("---Items in the library ---");
 
         for (LibraryItem item : items) {
             System.out.println(item);
@@ -28,7 +28,7 @@ public class Library
     }
 
     public void listMembers() {
-        System.out.println("=== Registered members ===");
+        System.out.println("--- Registered members ---");
 
 
         for (Member member : members) {
@@ -37,8 +37,8 @@ public class Library
     }
 
     public void printAllLateFees(int daysLate) {
-        System.out.println("=== Late Fees if " +
-                 daysLate + " day(s) late===");
+        System.out.println("--- Late Fees if " +
+                 daysLate + " day(s) late ---");
 
         for (LibraryItem item : items) {
             System.out.println(
