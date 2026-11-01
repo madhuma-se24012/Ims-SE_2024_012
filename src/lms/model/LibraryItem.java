@@ -1,5 +1,5 @@
 package lms.model;
-public abstract class LibraryItem {
+public class LibraryItem {
     private String id;
     private String title;
     private boolean isBorrowed;
@@ -36,12 +36,8 @@ public abstract class LibraryItem {
         this.title = title;
     }
 
-    public void borrowItem() {
-        isBorrowed = true;
-    }
-
-    public void returnItem() {
-        isBorrowed = false;
+    public void setBorrowed(boolean borrowed) {
+        this.isBorrowed = borrowed;
     }
 
     public double calculateLateFee(int daysLate) {

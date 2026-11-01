@@ -5,8 +5,8 @@ public class DVD extends LibraryItem {
     private int durationMinutes;
 
     public DVD(String id, String title, int durationMinutes) {
-        super(id,title);
-        this.durationMinutes = durationMinutes;
+        super(id, title);
+        setDurationMinutes(durationMinutes);
     }
 
     public int getDurationMinutes() {
@@ -27,4 +27,3 @@ public class DVD extends LibraryItem {
         return daysLate * 25.0;
     }
 }
-
