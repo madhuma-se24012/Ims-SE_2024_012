@@ -1,9 +1,10 @@
 package lms;
+
 import lms.model.Book;
 import lms.model.DVD;
 import lms.model.LibraryItem;
-import lms.model.Staff;
 import lms.model.Student;
+import lms.model.Staff;
 import lms.service.Library;
 
 public class Main {
@@ -21,50 +22,38 @@ public class Main {
         DVD dvd1 = new DVD(
                 "D001", "Introduction to Algorithms", 120);
 
+
+        Student student1 = new Student(
+                "M001", "Nadeesha Perera");
+
+        Staff staff1 = new Staff(
+                "M002", "Kasun Silva");
+
+
         library.addItem(book1);
         library.addItem(book2);
         library.addItem(dvd1);
 
-        library.addMember(
-                new Student("M001", "Nadeesha Perera"));
-
-        library.addMember(
-                new Staff("M002", "Kasun Silva"));
+        library.addMember(student1);
+        library.addMember(staff1);
 
         library.listItems();
+
         System.out.println();
+
 
         library.listMembers();
+
         System.out.println();
+
 
         library.printAllLateFees(3);
+
         System.out.println();
 
-        System.out.println("--- Streaming Test ---");
+        LibraryItem item = dvd1;
 
-        library.streamIfPossible(dvd1);
+        library.streamIfPossible(item);
         library.streamIfPossible(book1);
-
-        System.out.println();
-
-        try {
-            new Book("B003", "", "Unknown Author");
-        } catch (IllegalArgumentException e) {
-            System.out.println(
-                    "Rejected invalid book: " + e.getMessage());
-        }
-
-        System.out.println();
-
-
-        System.out.println("--- Binding Test ---");
-
-        Book b = new Book(
-                "B004", "Java Basics", "John Smith");
-
-        LibraryItem same = b;
-
-        library.addItem(b);
-        library.addItem(same);
     }
 }

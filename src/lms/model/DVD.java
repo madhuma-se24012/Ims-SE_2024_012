@@ -1,3 +1,4 @@
+
 package lms.model;
 
 public class DVD extends LibraryItem {
@@ -25,5 +26,13 @@ public class DVD extends LibraryItem {
     @Override
     public double calculateLateFee(int daysLate) {
         return daysLate * 25.0;
+    }
+
+    @Override
+    public void stream() {
+        System.out.println(
+                "Streaming \"" + getTitle()
+                        + "\" (" + durationMinutes + " min)..."
+        );
     }
 }
