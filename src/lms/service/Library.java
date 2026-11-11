@@ -1,4 +1,3 @@
-
 package lms.service;
 
 import lms.model.LibraryItem;
@@ -63,13 +62,15 @@ public class Library {
 
         for (LibraryItem item : items) {
             System.out.println(
+                    item.getClass().getSimpleName() + " - " +
                     item.getTitle() + ": "
                             + item.calculateLateFee(daysLate)
             );
         }
     }
 
-    public void streamIfPossible(LibraryItem item) {
+    public void streamIfPossible(LibraryItem item)
+    {
         item.stream();
     }
 }

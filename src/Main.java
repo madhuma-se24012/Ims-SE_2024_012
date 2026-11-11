@@ -28,6 +28,8 @@ public class Main {
 
         Staff staff1 = new Staff(
                 "M002", "Kasun Silva");
+        DVD d1 = new DVD("D1", "Test DVD", 120);
+
 
 
         library.addItem(book1);
@@ -56,4 +58,5 @@ public class Main {
         library.streamIfPossible(item);
         library.streamIfPossible(book1);
     }
+
 }
