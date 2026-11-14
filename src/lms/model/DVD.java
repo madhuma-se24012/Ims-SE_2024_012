@@ -1,3 +1,4 @@
+
 package lms.model;
 
 public class DVD extends LibraryItem {
@@ -5,8 +6,8 @@ public class DVD extends LibraryItem {
     private int durationMinutes;
 
     public DVD(String id, String title, int durationMinutes) {
-        super(id,title);
-        this.durationMinutes = durationMinutes;
+        super(id, title);
+        setDurationMinutes(durationMinutes);
     }
 
     public int getDurationMinutes() {
@@ -26,5 +27,12 @@ public class DVD extends LibraryItem {
     public double calculateLateFee(int daysLate) {
         return daysLate * 25.0;
     }
-}
 
+    @Override
+    public void stream() {
+        System.out.println(
+                "Streaming \"" + getTitle()
+                        + "\" (" + durationMinutes + " min)..."
+        );
+    }
+}

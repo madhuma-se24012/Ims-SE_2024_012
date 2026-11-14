@@ -1,5 +1,8 @@
+
 package lms.model;
-public abstract class LibraryItem {
+
+public class LibraryItem {
+
     private String id;
     private String title;
     private boolean isBorrowed;
@@ -36,16 +39,19 @@ public abstract class LibraryItem {
         this.title = title;
     }
 
-    public void borrowItem() {
-        isBorrowed = true;
-    }
-
-    public void returnItem() {
-        isBorrowed = false;
+    public void setBorrowed(boolean borrowed) {
+        this.isBorrowed = borrowed;
     }
 
     public double calculateLateFee(int daysLate) {
         return daysLate * 10.0;
+    }
+
+    // Streaming method for polymorphism
+    public void stream() {
+        System.out.println(
+                getTitle() + " cannot be streamed - it isn't a DVD."
+        );
     }
 
     @Override

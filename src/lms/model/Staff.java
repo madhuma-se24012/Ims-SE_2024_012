@@ -1,4 +1,5 @@
 package lms.model;
+
 public class Staff extends Member {
 
     private static final int STAFF_BORROW_LIMIT = 10;

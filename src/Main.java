@@ -2,8 +2,9 @@ package lms;
 
 import lms.model.Book;
 import lms.model.DVD;
-import lms.model.Staff;
+import lms.model.LibraryItem;
 import lms.model.Student;
+import lms.model.Staff;
 import lms.service.Library;
 
 public class Main {
@@ -12,41 +13,50 @@ public class Main {
 
         Library library = new Library();
 
-        // Add books
-        library.addItem(
-                new Book("B001", "Clean Code", "Robert C. Martin"));
+        Book book1 = new Book(
+                "B001", "Clean Code", "Robert C. Martin");
 
-        library.addItem(
-                new Book("B002", "Effective Java", "Joshua Bloch"));
+        Book book2 = new Book(
+                "B002", "Effective Java", "Joshua Bloch");
 
-        // Add DVD
-        library.addItem(
-                new DVD("D001", "Introduction to Algorithms", 148));
+        DVD dvd1 = new DVD(
+                "D001", "Introduction to Algorithms", 120);
 
-        // Add members
-        library.addMember(
-                new Student("M001", "Nadeesha Perera"));
 
-        library.addMember(
-                new Staff("M002", "Kasun Silva"));
+        Student student1 = new Student(
+                "M001", "Nadeesha Perera");
 
-        // Display items and members
+        Staff staff1 = new Staff(
+                "M002", "Kasun Silva");
+        DVD d1 = new DVD("D1", "Test DVD", 120);
+
+
+
+        library.addItem(book1);
+        library.addItem(book2);
+        library.addItem(dvd1);
+
+        library.addMember(student1);
+        library.addMember(staff1);
+
         library.listItems();
+
         System.out.println();
+
 
         library.listMembers();
+
         System.out.println();
 
-        // Calculate late fees for 3 days
+
         library.printAllLateFees(3);
+
         System.out.println();
 
-        // Test invalid book title
-        try {
-            new Book("B003", "", "Unknown Author");
-        } catch (IllegalArgumentException e) {
-            System.out.println(
-                    "Rejected invalid book: " + e.getMessage());
-        }
+        LibraryItem item = dvd1;
+
+        library.streamIfPossible(item);
+        library.streamIfPossible(book1);
     }
+
 }

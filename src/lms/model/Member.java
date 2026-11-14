@@ -1,6 +1,8 @@
+
 package lms.model;
-public class Member
-{
+
+public class Member {
+
     private String memberId;
     private String name;
     private int borrowedCount;
@@ -9,7 +11,7 @@ public class Member
     public Member(String memberId, String name, int maxBorrowLimit) {
         setMemberId(memberId);
         setName(name);
-        this.maxBorrowLimit = maxBorrowLimit;
+        setMaxBorrowLimit(maxBorrowLimit);
         setBorrowedCount(0);
     }
 
@@ -49,6 +51,14 @@ public class Member
                     "Borrowed count cannot be negative");
         }
         this.borrowedCount = borrowedCount;
+    }
+
+    public void setMaxBorrowLimit(int maxBorrowLimit) {
+        if (maxBorrowLimit <= 0) {
+            throw new IllegalArgumentException(
+                    "Maximum borrow limit must be greater than zero");
+        }
+        this.maxBorrowLimit = maxBorrowLimit;
     }
 
     public void incrementBorrowedCount() {

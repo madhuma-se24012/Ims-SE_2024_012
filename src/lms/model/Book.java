@@ -1,11 +1,11 @@
 package lms.model;
-public class Book extends LibraryItem
-{
+
+public class Book extends LibraryItem {
 
     private String author;
 
     public Book(String id, String title, String author) {
-        super(id, title);
+        super(id,title);
         setAuthor(author);
     }
 
@@ -20,4 +20,3 @@ public class Book extends LibraryItem
         this.author = author;
     }
 }
-
