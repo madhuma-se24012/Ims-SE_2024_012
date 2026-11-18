@@ -2,7 +2,6 @@ package lms.model;
 
 public class Member implements Comparable<Member>
 {
-
     private String memberId;
     private String name;
     private int borrowedCount;
@@ -91,7 +90,7 @@ public class Member implements Comparable<Member>
     @Override
     public int compareTo(Member other)
     {
-        return Integer.compare(
+       return Integer.compare(
                 other.borrowedCount,
                 this.borrowedCount);
     }

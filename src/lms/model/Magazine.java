@@ -9,12 +9,14 @@ public class Magazine extends LibraryItem {
         this.issueNumber = issueNumber;
     }
 
-    public int getIssueNumber() {
+    public int getIssueNumber()
+    {
         return issueNumber;
     }
 
     @Override
-    public double calculateLateFee(int daysLate) {
+    public double calculateLateFee(int daysLate)
+    {
         return daysLate * 5.0;
     }
 }

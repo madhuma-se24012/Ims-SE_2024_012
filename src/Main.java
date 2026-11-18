@@ -31,6 +31,8 @@ public class Main
         library.addMember(student);
         library.addMember(staff);
 
+        System.out.println("--- Late fees if 3 day(s) late ---");
+
         library.printAllLateFees(3);
         System.out.println("--- Loans ---");
 
@@ -45,5 +47,8 @@ public class Main
         library.reserveIfPossible(dvd, staff);
 
         library.printMembersByActivity();
+
+
     }
+
 }
