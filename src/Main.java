@@ -2,61 +2,53 @@ package lms;
 
 import lms.model.Book;
 import lms.model.DVD;
-import lms.model.LibraryItem;
+import lms.model.Magazine;
 import lms.model.Student;
 import lms.model.Staff;
 import lms.service.Library;
 
-public class Main {
+public class Main
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
 
         Library library = new Library();
+        Book book = new Book("B001", "Clean Code", "Robert C. Martin");
 
-        Book book1 = new Book(
-                "B001", "Clean Code", "Robert C. Martin");
+        DVD dvd = new DVD("D001", "Introduction to Algorithms", 120);
 
-        Book book2 = new Book(
-                "B002", "Effective Java", "Joshua Bloch");
+        Magazine magazine = new Magazine("M001", "Software Weekly", 15);
 
-        DVD dvd1 = new DVD(
-                "D001", "Introduction to Algorithms", 120);
+        Student student = new Student("M001", "Nadeesha Perera");
 
+        Staff staff = new Staff("M002", "Mr. Kasun Silva");
 
-        Student student1 = new Student(
-                "M001", "Nadeesha Perera");
+        library.addItem(book);
+        library.addItem(dvd);
+        library.addItem(magazine);
 
-        Staff staff1 = new Staff(
-                "M002", "Kasun Silva");
-        DVD d1 = new DVD("D1", "Test DVD", 120);
+        library.addMember(student);
+        library.addMember(staff);
 
-
-
-        library.addItem(book1);
-        library.addItem(book2);
-        library.addItem(dvd1);
-
-        library.addMember(student1);
-        library.addMember(staff1);
-
-        library.listItems();
-
-        System.out.println();
-
-
-        library.listMembers();
-
-        System.out.println();
-
+        System.out.println("--- Late fees if 3 day(s) late ---");
 
         library.printAllLateFees(3);
+        System.out.println("--- Loans ---");
 
-        System.out.println();
+        library.lend(book, student);
+        library.lend(book, staff);
+        library.lend(dvd, staff);
+        library.lend(magazine, staff);
 
-        LibraryItem item = dvd1;
+        System.out.println("--- Reservations ---");
 
-        library.streamIfPossible(item);
-        library.streamIfPossible(book1);
+        library.reserveIfPossible(book, staff);
+        library.reserveIfPossible(dvd, staff);
+
+        library.printMembersByActivity();
+
+
     }
 
 }

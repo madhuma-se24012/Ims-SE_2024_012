@@ -1,8 +1,7 @@
-
 package lms.model;
 
-public class Member {
-
+public class Member implements Comparable<Member>
+{
     private String memberId;
     private String name;
     private int borrowedCount;
@@ -15,62 +14,84 @@ public class Member {
         setBorrowedCount(0);
     }
 
-    public String getMemberId() {
+    public String getMemberId()
+    {
         return memberId;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public int getBorrowedCount() {
+    public int getBorrowedCount()
+    {
         return borrowedCount;
     }
 
-    public int getMaxBorrowLimit() {
+    public int getMaxBorrowLimit()
+    {
         return maxBorrowLimit;
     }
 
-    public void setMemberId(String memberId) {
-        if (memberId == null || memberId.isBlank()) {
+    public void setMemberId(String memberId)
+    {
+        if (memberId == null || memberId.isBlank())
+        {
             throw new IllegalArgumentException("Member ID cannot be blank");
         }
         this.memberId = memberId;
     }
 
-    public void setName(String name) {
-        if (name == null || name.isBlank()) {
+    public void setName(String name)
+    {
+        if (name == null || name.isBlank())
+        {
             throw new IllegalArgumentException("Name cannot be blank");
         }
         this.name = name;
     }
 
-    public void setBorrowedCount(int borrowedCount) {
-        if (borrowedCount < 0) {
+    public void setBorrowedCount(int borrowedCount)
+    {
+        if (borrowedCount < 0)
+        {
             throw new IllegalArgumentException(
                     "Borrowed count cannot be negative");
         }
         this.borrowedCount = borrowedCount;
     }
 
-    public void setMaxBorrowLimit(int maxBorrowLimit) {
-        if (maxBorrowLimit <= 0) {
+    public void setMaxBorrowLimit(int maxBorrowLimit)
+    {
+        if (maxBorrowLimit <= 0)
+        {
             throw new IllegalArgumentException(
                     "Maximum borrow limit must be greater than zero");
         }
         this.maxBorrowLimit = maxBorrowLimit;
     }
 
-    public void incrementBorrowedCount() {
+    public void incrementBorrowedCount()
+    {
         setBorrowedCount(borrowedCount + 1);
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return getClass().getSimpleName()
                 + "{id='" + memberId
                 + "', name='" + name
                 + "', borrowedCount=" + borrowedCount
                 + ", limit=" + maxBorrowLimit + "}";
+    }
+
+    @Override
+    public int compareTo(Member other)
+    {
+       return Integer.compare(
+                other.borrowedCount,
+                this.borrowedCount);
     }
 }
